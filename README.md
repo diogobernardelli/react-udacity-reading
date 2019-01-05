@@ -21,10 +21,10 @@ Projeto em react-redux para a finalização do módulo `react-redux` da Udacity.
 
 ## Screenshots
 
-## RootView
-![alt text](https://i.ibb.co/f4SnRqJ/Captura-de-Tela-2018-12-30-a-s-04-39-14.png)
+## Home
+![alt text](https://i.ibb.co/1ZXmRfH/001.png)
 
-## RootView - Nova Publicação
+## Nova Publicação
 ![alt text](https://i.ibb.co/xfdpt86/Captura-de-Tela-2018-12-30-a-s-04-39-38.png)
 
 ## Detalhes da Publicação
