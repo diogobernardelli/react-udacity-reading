@@ -1,0 +1,201 @@
+/* NORMALIZE CSS */
+@import url('Normalize.css');
+
+/* THASADITH FONT */
+@import url('https://fonts.googleapis.com/css?family=Thasadith:400,700');
+
+body {
+  font-family: 'Thasadith', sans-serif;
+  font-weight: 300;
+  padding: 180px 0 80px;
+}
+
+strong {
+  color: #34495e;
+  font-weight: 700;
+}
+
+h1, h2, h3 {
+  color: #34495e;
+  font-weight: 700;
+}
+
+.appbar {
+  position: fixed !important;
+  top: 0;
+  padding: 50px 0;
+  background: linear-gradient(to right, rgba(52,152,219,1) 0%,rgba(164,252,240,1) 100%);
+}
+
+.appbar h1, .appbar h2 {
+  font-family: 'Thasadith', sans-serif;
+  margin: 0;
+  text-align: center;
+  color: #fff;
+  font-weight: 400;
+}
+
+.appbar h1 {
+  font-family: 'Thasadith', sans-serif;
+  display: block;
+  text-align: center;
+  font-size: 44px !important;
+}
+
+.appbar.details {
+  padding: 0;
+  height: 164px;
+  display: block !important;
+}
+
+.appbar.details > div + div {
+  height: 140px !important;
+}
+
+.appbar.details .title {
+  position: relative;
+  top: 32px;
+  height: 140px;
+}
+
+.appbar.details h2 {
+  font-size: 18px;
+  line-height: 10px;
+}
+
+.appbar.details h2 strong {
+  color: #fff;
+}
+
+.appbar button {
+  display: none !important;
+}
+
+.appbar a button {
+  position: absolute !important;
+  display: block !important;
+  top: 56px;
+  z-index: 1;
+}
+
+.appbar a button svg {
+  fill: #fff !important;
+  width: 30px !important;
+  height: 30px !important;
+}
+
+.main-list {
+  width: 800px;
+  display: block;
+  margin: 50px auto 0;
+}
+
+.main-list h3 {
+  margin: 0;
+  font-weight: 400;
+}
+
+.main-list hr {
+  background-color: #34495e !important;
+  opacity: .3;
+}
+
+.post-item  {
+  height: auto !important;
+}
+
+.post-author {
+  margin-right: 40px;
+}
+
+.post-content {
+  display: block;
+  color: #34495e;
+  padding: 20px 0 0;
+}
+
+.post-actions {
+  width: 200px;
+  margin: 0 0 15px;
+  padding: 5px 0 0;
+}
+
+.post-actions div {
+  margin: 0 20px 0 0;
+  display: inline;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.post-actions div svg {
+  margin-left: 0 !important;
+  margin-right: 2px !important;
+}
+
+#content {
+  font-size: 22px;
+}
+
+#comments {
+  margin: 40px 0 0;
+  padding: 20px 0 0;
+}
+
+.comment {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  margin: 0 0 30px;
+  padding: 0 0 30px;
+}
+
+.fab-style {
+  position: fixed;
+  right: 25px;
+  bottom: 25px;
+}
+
+.user-style {
+  position: relative;
+  top: 5px;
+  margin-right: 10px;
+}
+
+.icon {
+  position: relative;
+  top: 1px;
+  width: 12px !important;
+  height: 12px !important;
+  color: '#34495e' !important;
+  margin-right: 4px !important;
+  margin-left: 15px !important;
+}
+
+.like-icon {
+  position: relative;
+  top: 4px;
+  width: 10px !important;
+  height: 10px !important;
+  color: #ffffff !important;
+  margin-right: -3px;
+  background-color: #1abc9c !important;
+  border-radius: 50%;
+  padding: 4px;
+  z-index: 1 !important;
+  border: '2px solid #ffffff' !important;
+  cursor: pointer;
+}
+
+.dislike-icon {
+  position: relative;
+  top: 4px;
+  width: 10px !important;
+  height: 10px !important;
+  color: #ffffff !important;
+  margin-right: 6px;
+  background-color: #e74c3c !important;
+  border-radius: 50%;
+  padding: 4px;
+  z-index: 0 !important;
+  border: '2px solid #ffffff' !important;
+  cursor: pointer;
+}
