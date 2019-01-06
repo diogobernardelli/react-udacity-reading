@@ -25,6 +25,19 @@ h1, h2, h3 {
   top: 0;
   padding: 50px 0;
   background: linear-gradient(to right, rgba(52,152,219,1) 0%,rgba(164,252,240,1) 100%);
+  overflow: hidden;
+}
+
+.appbar:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-image: url("/post-background.jpg");
+  opacity: .2;
 }
 
 .appbar h1, .appbar h2 {
@@ -75,7 +88,7 @@ h1, h2, h3 {
   position: absolute !important;
   display: block !important;
   top: 56px;
-  z-index: 1;
+  z-index: 2;
 }
 
 .appbar a button svg {
@@ -204,7 +217,7 @@ h1, h2, h3 {
   display: block;
   width: auto;
   max-width: 90%;
-  margin: 40px auto;
+  margin: 40px auto 0;
 }
 
 .back-home {
@@ -223,4 +236,10 @@ h1, h2, h3 {
 .back-home:hover {
   background-color: #34495e;
   color: #fff;
+}
+
+.title {
+  display: block;
+  text-align: center;
+  font-size: 30px;
 }

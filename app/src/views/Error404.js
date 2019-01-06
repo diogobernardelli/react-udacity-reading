@@ -6,12 +6,10 @@ import { Link } from 'react-router-dom'
 const Error404 = ({ location }) => (
     <div>
         <NavTop title="Oooooooops..."
-            useToobar={false}
-            handleChangeCategory={() => null}
-            handleChangeSort={() => null} />
+            hideToobar={true} />
         <div>
-            {/* <img className="not-found-image" src="https://i.ibb.co/jfC8306/404.jpg"></img> */}
             <img className="not-found-image" src="/404.jpg"></img>
+            <h3 className="title">¯\_(ツ)_/¯</h3>
             <Link to="/" className="back-home">Retornar para a página inicial</Link>
         </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import Index from '../views/Index';
 import PostDetail from '../views/PostDetail';
@@ -14,7 +14,6 @@ const App = () => {
               <Route exact path="/" component={Index} />
               <Route exact path="/:category" component={Index} />
               <Route exact path="/:category/:postId" component={PostDetail} />
-              {/* <Route render={() => <Error404 location={location} />} /> */}
             </Switch>
           </BrowserRouter>
         </MuiThemeProvider>
