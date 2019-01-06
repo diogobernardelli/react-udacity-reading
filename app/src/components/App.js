@@ -2,17 +2,21 @@ import React, { Component } from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
 import Index from '../views/Index';
 import PostDetail from '../views/PostDetail';
+import Error404 from '../views/Error404';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class App extends Component {
     render() {
+        let { location } = this.props;
         return (
           <MuiThemeProvider>
             <BrowserRouter>
               <Switch>
-                  <Route exact path="/" component={Index} />
-                  <Route exact path="/:category" component={Index} />
-                  <Route path="/:category/:postId" component={PostDetail} />
+                <Route exact path='/erro404' component={Error404}/>
+                <Route exact path="/" component={Index} />
+                <Route exact path="/:category" component={Index} />
+                <Route exact path="/:category/:postId" component={PostDetail} />
+                {/* <Route render={() => <Error404 location={location} />} /> */}
               </Switch>
             </BrowserRouter>
           </MuiThemeProvider>

@@ -34,7 +34,6 @@ import PostForm from './PostForm';
 import CommentForm from './CommentForm';
 
 class PostDetail extends Component {
-
     componentDidMount() {
         let { PostModel, history } = this.props;
         let postId = this.props.match.params.postId;
@@ -44,6 +43,14 @@ class PostDetail extends Component {
         if (PostModel.error !== undefined) {
             alert("Desculpe, essa postagem não foi encontrada.");
             history.push("/");
+        }
+    }
+
+    componentWillReceiveProps(nextProps) {
+        let postModel = nextProps.PostModel
+    
+        if(Object.keys(postModel).length === 0) {
+          window.location = '/erro404'
         }
     }
 

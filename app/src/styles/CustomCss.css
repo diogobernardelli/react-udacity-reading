@@ -199,3 +199,28 @@ h1, h2, h3 {
   border: '2px solid #ffffff' !important;
   cursor: pointer;
 }
+
+.not-found-image {
+  display: block;
+  width: auto;
+  max-width: 90%;
+  margin: 40px auto;
+}
+
+.back-home {
+  display: table;
+  padding: 5px 20px;
+  border-radius: 5px;
+  color: #34495e;
+  font-weight: 600;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 auto;
+  text-decoration: none;
+  border: 1px solid #34495e;
+}
+
+.back-home:hover {
+  background-color: #34495e;
+  color: #fff;
+}
