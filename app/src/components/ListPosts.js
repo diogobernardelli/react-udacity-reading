@@ -8,7 +8,6 @@ import EditorModeEdit from 'material-ui/svg-icons/editor/mode-edit';
 import ActionDelete from 'material-ui/svg-icons/action/delete';
 import EditorInsertInvitation from 'material-ui/svg-icons/editor/insert-invitation';
 import EditorModeComment from 'material-ui/svg-icons/editor/mode-comment';
-// import { grey400 } from 'material-ui/styles/colors';
 import { grey400, red500, green500 } from 'material-ui/styles/colors';
 import moment from 'moment';
 
