@@ -21,7 +21,7 @@ import {
 } from '../actions/posts';
 
 import PostForm from './PostForm';
-import { ListPosts, NavTop } from '../components';
+import { ListPosts, NavTop, Loader} from '../components';
 
 class Index extends Component {
 
@@ -31,23 +31,29 @@ class Index extends Component {
   }
 
   render() {
-    let { history, posts, categories, categorySelected, sortSelected } = this.props;
+    let { history, posts, categories, categorySelected, sortSelected, loading } = this.props;
     return (
       <div>
-        <NavTop title="React Udacity Leitura"
-          history={history}
-          categories={categories}
-          categorySelected={categorySelected}
-          sortSelected={sortSelected}
-          handleChangeCategory={this.props.changeCategory}
-          handleChangeSort={this.props.changeSort} />
-        <ListPosts
-          posts={posts}
-          history={history}
-          handleVotePost={this.props.postVote}
-          handleEditPost={this.props.postEdit}
-          handleDeletePost={this.props.postRemove} />
-        <PostForm />
+        {!loading ? (
+          <Loader />
+        ) : (
+          <div>
+            <NavTop title="React Udacity Leitura"
+              history={history}
+              categories={categories}
+              categorySelected={categorySelected}
+              sortSelected={sortSelected}
+              handleChangeCategory={this.props.changeCategory}
+              handleChangeSort={this.props.changeSort} />
+            <ListPosts
+              posts={posts}
+              history={history}
+              handleVotePost={this.props.postVote}
+              handleEditPost={this.props.postEdit}
+              handleDeletePost={this.props.postRemove} />
+            <PostForm />
+          </div>
+        )}
       </div>
     );
   }
@@ -55,6 +61,7 @@ class Index extends Component {
 
 const mapStateToProps = state => (
   {
+    loading: state.RootReducer.loading,
     categorySelected: state.RootReducer.categorySelected,
     sortSelected: state.RootReducer.sortSelected,
     categories: state.RootReducer.categories,

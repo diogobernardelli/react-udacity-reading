@@ -37,13 +37,14 @@ const INITIAL_STATE = {
   CommentModel,
   comments: [],
   fieldsErros: [],
-  openDialogState: false
+  openDialogState: false,
+  loading: false
 }
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
       case DETAIL_GET_POST:
-          return { ...state, PostModel: { ...action.payload } }
+          return { ...state, PostModel: { ...action.payload }, loading: true }
       case DETAIL_GET_ALL_COMMENTS:
           return { ...state, comments: [...action.payload] }
       case DETAIL_OPEN_DIALOG_COMMENT:

@@ -14,7 +14,8 @@ const INITIAL_STATE = {
   sortSelected: '-voteScore',
   categories: [],
   posts: [],
-  openDialogState: false
+  openDialogState: false,
+  loading: false
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -27,7 +28,7 @@ export default (state = INITIAL_STATE, action) => {
       case LIST_CATEGORIES:
           return { ...state, categories: action.payload }
       case LIST_POSTS:
-          return { ...state, posts: action.payload }
+          return { ...state, posts: action.payload, loading: true }
       case DIALOG_POST_FORM:
           return { ...state, openDialogState: action.payload }
       case UPDATE_POSTS:

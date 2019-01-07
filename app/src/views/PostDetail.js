@@ -29,7 +29,7 @@ import ActionDelete from 'material-ui/svg-icons/action/delete';
 import EditorModeEdit from 'material-ui/svg-icons/editor/mode-edit';
 import HardwareKeyboardArrowLeft from 'material-ui/svg-icons/hardware/keyboard-arrow-left';
 import EditorModeComment from 'material-ui/svg-icons/editor/mode-comment';
-import { Commentary } from '../components';
+import { Commentary, Loader } from '../components';
 import PostForm from './PostForm';
 import CommentForm from './CommentForm';
 
@@ -55,78 +55,87 @@ class PostDetail extends Component {
     }
 
     render() {
-        let { PostModel, comments } = this.props;
+        let { PostModel, comments, loading } = this.props;
         let { title, body, author, voteScore, timestamp } = PostModel;
-        return (<div>
-            <AppBar
-                className="appbar details"
-                title={
-                    <div className="title">
-                        <h1>{title}</h1>
-                        <h2>Por <strong>{author}</strong></h2>
-                    </div>
-                }
-                iconElementLeft={
-                <Link to="/">
-                    <IconButton><HardwareKeyboardArrowLeft /></IconButton>
-                </Link>}
-            />
-            <div className="main-list">
-                <div id="content">{body}</div>
-                <br />
-                <small>Publicado em {moment(timestamp).format("DD/MM/YY HH:mm")}</small><br />
-                <div className="post-actions">
-                    <div
-                        role="button"
-                        onClick={() => this.props.postEdit(PostModel)}
-                    >
-                        <EditorModeEdit className="icon" /> editar
-                    </div>
-                    <div
-                        role="button"
-                        onClick={() => this.props.postRemove(PostModel.id, this.props.history)}
-                    >
-                        <ActionDelete className="icon" /> excluir
-                    </div>
-                </div>
-                <ActionThumbUp
-                    className="like-icon"
-                    onClick={() => this.props.postVote(PostModel.id, "upVote")}
-                /> 
-                <ActionThumbDown
-                    className="dislike-icon"
-                    onClick={() => this.props.postVote(PostModel.id, "downVote")}
-                /> 
-                {voteScore}
-                
-                <div id="comments">
-                    <h2>
-                        {comments.length === 1 ? `${comments.length} Comentário` : `${comments.length} Comentários`}
-                    </h2>
-                    {comments.map(c => (<Commentary
-                        key={c.id}
-                        CommentModel={c}
-                        handleVoteComment={this.props.postDetailCommentVote}
-                        handleEditComment={this.props.postDetailCommentEdit}
-                        handleRemoveComment={this.props.postDetailCommentRemove} />))}
-                </div>
-            </div>
-            <PostForm fab={false} />
-            <CommentForm />
+        return (
+            <div>
+                {!loading ? (
+                <Loader />
+                ) : (
+                    <div>
+                        <AppBar
+                            className="appbar details"
+                            title={
+                                <div className="title">
+                                    <h1>{title}</h1>
+                                    <h2>Por <strong>{author}</strong></h2>
+                                </div>
+                            }
+                            iconElementLeft={
+                            <Link to="/">
+                                <IconButton><HardwareKeyboardArrowLeft /></IconButton>
+                            </Link>}
+                        />
+                        <div className="main-list">
+                            <div id="content">{body}</div>
+                            <br />
+                            <small>Publicado em {moment(timestamp).format("DD/MM/YY HH:mm")}</small><br />
+                            <div className="post-actions">
+                                <div
+                                    role="button"
+                                    onClick={() => this.props.postEdit(PostModel)}
+                                >
+                                    <EditorModeEdit className="icon" /> editar
+                                </div>
+                                <div
+                                    role="button"
+                                    onClick={() => this.props.postRemove(PostModel.id, this.props.history)}
+                                >
+                                    <ActionDelete className="icon" /> excluir
+                                </div>
+                            </div>
+                            <ActionThumbUp
+                                className="like-icon"
+                                onClick={() => this.props.postVote(PostModel.id, "upVote")}
+                            /> 
+                            <ActionThumbDown
+                                className="dislike-icon"
+                                onClick={() => this.props.postVote(PostModel.id, "downVote")}
+                            /> 
+                            {voteScore}
+                            
+                            <div id="comments">
+                                <h2>
+                                    {comments.length === 1 ? `${comments.length} Comentário` : `${comments.length} Comentários`}
+                                </h2>
+                                {comments.map(c => (<Commentary
+                                    key={c.id}
+                                    CommentModel={c}
+                                    handleVoteComment={this.props.postDetailCommentVote}
+                                    handleEditComment={this.props.postDetailCommentEdit}
+                                    handleRemoveComment={this.props.postDetailCommentRemove} />))}
+                            </div>
+                        </div>
+                        <PostForm fab={false} />
+                        <CommentForm />
 
-            <FloatingActionButton
-                className="fab-style"
-                onClick={() => this.props.postDetailOpenDialogComment(true)} >
-                <EditorModeComment />
-            </FloatingActionButton>
-        </div>)
+                        <FloatingActionButton
+                            className="fab-style"
+                            onClick={() => this.props.postDetailOpenDialogComment(true)} >
+                            <EditorModeComment />
+                        </FloatingActionButton>
+                    </div>
+                )}
+            </div>
+        )
     }
 }
 
 const mapStateToProps = state => (
     {
         PostModel: state.PostDetailReducer.PostModel,
-        comments: state.PostDetailReducer.comments
+        comments: state.PostDetailReducer.comments,
+        loading: state.PostDetailReducer.loading
     }
 );
 
