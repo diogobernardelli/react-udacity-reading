@@ -51,10 +51,9 @@ export const ListPosts = ({ posts, history, handleVotePost, handleEditPost, hand
                                     <EditorInsertInvitation className="icon" />
                                     {moment(p.timestamp).format("DD/MM/YY HH:mm")}
                                     <EditorModeComment className="icon" />
-                                    {p.totalComments}
+                                    {p.commentCount}
                                     <ActionThumbUp className="icon" />
                                     {p.voteScore}
-                                    
                                 </span>
                                 <br />
                                 <span className="post-content">
